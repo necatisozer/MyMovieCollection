@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Movie Collection</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+        <a class="navbar-brand" href="#">My Movie Collection</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class=@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")>
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "collapse navbar-collapse navbar-nav mr-auto nav-item nav-item active nav-link", @id = "navbarColor01" })
+                </li>
+                <li class=@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")>
+                    @Html.ActionLink("Movies", "Index", "Movies", null, new { @class = "collapse navbar-collapse navbar-nav mr-auto nav-item nav-item active nav-link", @id = "navbarColor01" })
+                </li>
+                <li class=@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")>
+                    @Html.ActionLink("About", "About", "Home", null, new { @class = "collapse navbar-collapse navbar-nav mr-auto nav-item nav-item active nav-link", @id = "navbarColor01" })
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Movie Collection</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
