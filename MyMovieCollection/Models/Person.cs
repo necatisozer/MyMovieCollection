@@ -11,7 +11,9 @@ namespace MyMovieCollection.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(PersonMetaData))]
     public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -38,5 +40,34 @@ namespace MyMovieCollection.Models
         public virtual ICollection<Cast> Casts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crew> Crews { get; set; }
+    }
+
+    public class PersonMetaData
+    {
+        [Display(Name = "Adult")]
+        public bool adult { get; set; }
+        [Display(Name = "Biography")]
+        public string biography { get; set; }
+        [Display(Name = "Birthday")]
+        public Nullable<System.DateTime> birthday { get; set; }
+        [Display(Name = "Deathday")]
+        public Nullable<System.DateTime> deathday { get; set; }
+        [Display(Name = "Gender")]
+        public byte gender { get; set; }
+        [Display(Name = "Homepage")]
+        public string homepage { get; set; }
+        [Display(Name = "ID")]
+        public int id { get; set; }
+        [Display(Name = "IMDB ID")]
+        public string imdb_id { get; set; }
+        [Display(Name = "Name")]
+        public string name { get; set; }
+        [Display(Name = "Place of Birth")]
+        public string place_of_birth { get; set; }
+        [Display(Name = "Popularity")]
+        public double popularity { get; set; }
+        [Display(Name = "Profile Path")]
+        public string profile_path { get; set; }
+
     }
 }

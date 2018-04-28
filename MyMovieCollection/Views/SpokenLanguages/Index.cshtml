@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyMovieCollection.Models.SpokenLanguage>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br>
+<h2>Spoken Languages</h2>
+
+<table class="table">
+    <tr>
+        <td align="right" colspan="2">
+            @Html.ActionLink("Add Spoken Language", "Create", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td align="right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.iso_639_1 }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.iso_639_1 })
+            </td>
+        </tr>
+    }
+
+</table>

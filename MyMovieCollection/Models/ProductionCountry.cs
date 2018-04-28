@@ -11,7 +11,9 @@ namespace MyMovieCollection.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(ProductionCountryMetaData))]
     public partial class ProductionCountry
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,5 +27,13 @@ namespace MyMovieCollection.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movie> Movies { get; set; }
+    }
+
+    public class ProductionCountryMetaData
+    {
+        [Display(Name = "ISO 3166-1")]
+        public string iso_3166_1 { get; set; }
+        [Display(Name = "Name")]
+        public string name { get; set; }
     }
 }

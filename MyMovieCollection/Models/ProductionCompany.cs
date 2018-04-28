@@ -11,7 +11,9 @@ namespace MyMovieCollection.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(ProductionCompanyMetaData))]
     public partial class ProductionCompany
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,5 +32,23 @@ namespace MyMovieCollection.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movie> Movies { get; set; }
+    }
+
+    public class ProductionCompanyMetaData
+    {
+        [Display(Name = "Description")]
+        public string description { get; set; }
+        [Display(Name = "Headquarters")]
+        public string headquarters { get; set; }
+        [Display(Name = "Homepage")]
+        public string homepage { get; set; }
+        [Display(Name = "ID")]
+        public int id { get; set; }
+        [Display(Name = "Logo Path")]
+        public string logo_path { get; set; }
+        [Display(Name = "Name")]
+        public string name { get; set; }
+        [Display(Name = "Origin Country")]
+        public string origin_country { get; set; }
     }
 }

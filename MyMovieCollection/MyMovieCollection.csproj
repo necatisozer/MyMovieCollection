@@ -150,8 +150,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KeywordsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\ProductionCompaniesController.cs" />
+    <Compile Include="Controllers\ProductionCountriesController.cs" />
+    <Compile Include="Controllers\SpokenLanguagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,6 +268,36 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Genres\Create.cshtml" />
+    <Content Include="Views\Genres\Delete.cshtml" />
+    <Content Include="Views\Genres\Details.cshtml" />
+    <Content Include="Views\Genres\Edit.cshtml" />
+    <Content Include="Views\Genres\Index.cshtml" />
+    <Content Include="Views\ProductionCompanies\Create.cshtml" />
+    <Content Include="Views\ProductionCompanies\Delete.cshtml" />
+    <Content Include="Views\ProductionCompanies\Details.cshtml" />
+    <Content Include="Views\ProductionCompanies\Edit.cshtml" />
+    <Content Include="Views\ProductionCompanies\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\ProductionCountries\Create.cshtml" />
+    <Content Include="Views\ProductionCountries\Delete.cshtml" />
+    <Content Include="Views\ProductionCountries\Details.cshtml" />
+    <Content Include="Views\ProductionCountries\Edit.cshtml" />
+    <Content Include="Views\ProductionCountries\Index.cshtml" />
+    <Content Include="Views\SpokenLanguages\Create.cshtml" />
+    <Content Include="Views\SpokenLanguages\Delete.cshtml" />
+    <Content Include="Views\SpokenLanguages\Details.cshtml" />
+    <Content Include="Views\SpokenLanguages\Edit.cshtml" />
+    <Content Include="Views\SpokenLanguages\Index.cshtml" />
+    <Content Include="Views\Keywords\Create.cshtml" />
+    <Content Include="Views\Keywords\Delete.cshtml" />
+    <Content Include="Views\Keywords\Details.cshtml" />
+    <Content Include="Views\Keywords\Edit.cshtml" />
+    <Content Include="Views\Keywords\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
