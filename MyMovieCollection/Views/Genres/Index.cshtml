@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyMovieCollection.Models.Genre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<h2>Genres</h2>
+<table class="table">
+    <tr>
+        <td align="right" colspan="2">
+            @Html.ActionLink("Add Genre", "Create", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td align="right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }) 
+            </td>
+        </tr>
+    }
+
+</table>

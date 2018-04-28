@@ -64,13 +64,44 @@ namespace MyMovieCollection.Models
     }
     public class MovieMetaData
     {
-        [Display(Name = "Title")]
-        public string title { get; set; }
-
+        [Display(Name = "Adult")]
+        public bool adult { get; set; }
+        [Display(Name = "Backdrop Path")]
+        public string backdrop_path { get; set; }
+        [Display(Name = "Budget")]
+        public int budget { get; set; }
+        [Display(Name = "Homepage")]
+        public string homepage { get; set; }
+        [Display(Name = "ID")]
+        public int id { get; set; }
+        [Display(Name = "IMDB ID")]
+        public string imdb_id { get; set; }
+        [Display(Name = "Original Language")]
+        public string original_language { get; set; }
+        [Display(Name = "Original Title")]
+        public string original_title { get; set; }
+        [Display(Name = "Overview")]
+        public string overview { get; set; }
+        [Display(Name = "Popularity")]
+        public Nullable<double> popularity { get; set; }
+        [Display(Name = "Poster Path")]
+        public string poster_path { get; set; }
         [Display(Name = "Release Date")]
         public System.DateTime release_date { get; set; }
-
+        [Display(Name = "Revenue")]
+        public int revenue { get; set; }
+        [Display(Name = "Runtime")]
+        public Nullable<int> runtime { get; set; }
+        [Display(Name = "Status")]
+        public string status { get; set; }
+        [Display(Name = "Tagline")]
+        public string tagline { get; set; }
+        [Display(Name = "Title")]
+        public string title { get; set; }
         [Display(Name = "Rating")]
         public Nullable<double> vote_average { get; set; }
+        [Display(Name = "Vote Count")]
+        public Nullable<int> vote_count { get; set; }
+
     }
 }

@@ -11,7 +11,9 @@ namespace MyMovieCollection.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(SpokenLanguageMetaData))]
     public partial class SpokenLanguage
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,5 +27,13 @@ namespace MyMovieCollection.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movie> Movies { get; set; }
+    }
+
+    public class SpokenLanguageMetaData
+    {
+        [Display(Name = "ISO 639-1")]
+        public string iso_639_1 { get; set; }
+        [Display(Name = "Name")]
+        public string name { get; set; }
     }
 }

@@ -4,48 +4,57 @@
 @{
     ViewBag.Title = "Movies";
 }
+<br>
+<h2>Movies</h2>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table movie-table">
+<table class="table">
+    <tr>
+        <td align="right" colspan="6">
+            @Html.ActionLink("Add Movie", "Create", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
     <tr>
         <th></th>
         <th>
             @Html.DisplayNameFor(model => model.title)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.release_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.vote_average)
-        </th>
-        <th></th>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.runtime)</b>
+        </td>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.release_date)</b>
+        </td>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.vote_average)</b>
+        </td>
+        <td align="right">
+            <b>@Html.DisplayNameFor(model => model.status)</b>
+        </td>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td class="movie-table">
-                <img src=@(ImageConfiguration.secure_base_url+ImageConfiguration.poster_sizes.ElementAt(1)+item.poster_path) height="150">
+            <td style='vertical-align:middle'>
+                <a href='@Url.Action("Details", "Movies", new { id = item.id })'>
+                    <img src=@(ImageConfiguration.secure_base_url+ImageConfiguration.poster_sizes.ElementAt(1)+item.poster_path) height="150">
+                </a>
             </td>
-            <td class="movie-table">
-                @Html.DisplayFor(modelItem => item.title)
+            <td style='vertical-align:middle'>
+                @Html.ActionLink(item.title, "Details", new { id = item.id })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.release_date)
+            <td style='vertical-align:middle' align="center">
+                @Html.DisplayFor(modelItem => item.runtime) min
             </td>
-            <td>
+            <td style='vertical-align:middle' align="center">
+                @item.release_date.ToShortDateString()
+            </td>
+            <td style='vertical-align:middle' align="center">
                 @Html.DisplayFor(modelItem => item.vote_average)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            <td style='vertical-align:middle' align="right">
+                @Html.DisplayFor(modelItem => item.status)
             </td>
         </tr>
     }
-
 </table>

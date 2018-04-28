@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MyMovieCollection.Models.Person>
+@using MyMovieCollection.Utils
+@{
+    ViewBag.Title = "Index";
+}
+<br>
+<h2>People</h2>
+
+<table class="table">
+    <tr>
+        <td align="right" colspan="7">
+            @Html.ActionLink("Add Person", "Create", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.gender)</b>
+        </td>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.place_of_birth)</b>
+        </td>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.birthday)</b>
+        </td>
+        <td align="center">
+            <b>@Html.DisplayNameFor(model => model.deathday)</b>
+        </td>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src=@(ImageConfiguration.secure_base_url+ImageConfiguration.poster_sizes.ElementAt(1)+item.profile_path) height="125">
+            </td>
+            <td style='vertical-align:middle'>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td style='vertical-align:middle' align="center">
+                @if (item.gender == 1)
+                {<text>Female</text> }
+                else if (item.gender == 2)
+                { <text>Male</text>}
+            </td>
+            <td style='vertical-align:middle' align="center">
+                @Html.DisplayFor(modelItem => item.place_of_birth)
+            </td>
+            <td style='vertical-align:middle' align="center">
+                @(item.birthday.HasValue ? item.birthday.Value.ToString("dd/MM/yyyy") : "")
+            </td>
+            <td style='vertical-align:middle' align="center">
+                @(item.deathday.HasValue ? item.deathday.Value.ToString("dd/MM/yyyy") : "—")
+            </td>
+            <td style='vertical-align:middle' align="right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -224,10 +224,6 @@ table {
   border-spacing: 0;
 }
 
-movie-table {
-    vertical-align: middle;
-}
-
 @media print {
   * {
     color: #000 !important;

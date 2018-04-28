@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace MyMovieCollection.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+
+    [MetadataType(typeof(GenreMetaData))]
     public partial class Genre
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,5 +27,14 @@ namespace MyMovieCollection.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movie> Movies { get; set; }
+    }
+    public class GenreMetaData
+    {
+        [Display(Name = "ID")]
+        public int id { get; set; }
+
+        [Display(Name = "Name")]
+        public string name { get; set; }
+
     }
 }

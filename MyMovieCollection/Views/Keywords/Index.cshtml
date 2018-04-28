@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyMovieCollection.Models.Keyword>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br>
+<h2>Keywords</h2>
+
+<table class="table">
+    <tr>
+        <td align="right" colspan="2">
+            @Html.ActionLink("Add Keyword", "Create", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td align="right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

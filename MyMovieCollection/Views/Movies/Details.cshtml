@@ -13,8 +13,18 @@
             <td valign="top">
                 <table>
                     <tr>
-                        <td><h2>@Html.DisplayFor(model => model.title)</h2></td>
-                        <td align="right">@Html.DisplayFor(model => model.vote_average)<br>@Html.DisplayFor(model => model.vote_count)</td>
+                        <td>
+                            <h2>@Html.DisplayFor(model => model.title)</h2>
+                        </td>
+                        <td align="right">
+                            <table>
+                                <tr>
+                                    <td rowspan="2"><img height="40" src="~/Resources/Images/staricon.png"></td>
+                                    <td align="right"><big><b>@Html.DisplayFor(model => model.vote_average)</b></big><small class="text-muted">/10</small><br></td>
+                                <tr>
+                                    <td><small class="text-muted">@Html.DisplayFor(model => model.vote_count)</small></td>
+                            </table>
+                        </td>
                     <tr>
                         <td colspan="2">
                             @(!Model.original_title.Equals(Model.title) ? Model.original_title : "")
@@ -33,7 +43,7 @@
                                     </td>
                                     <td>
                                         <h5>
-                                            <small class="text-muted">@Model.runtime | Action, Drama, Fantasy | @Model.release_date.ToShortDateString()</small>
+                                            <small class="text-muted">@Model.runtime min | Action, Drama, Fantasy | @Model.release_date.ToShortDateString()</small>
                                         </h5>
                                     </td>
                             </table>
@@ -62,6 +72,6 @@
     </table>
 </div>
 <p>
-    <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = Model.id })</button>
-    <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = Model.id })</button>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.id }, new { @class = "btn btn-danger" })
 </p>
